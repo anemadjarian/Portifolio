@@ -546,20 +546,225 @@ h3 {
 
 
 /* =====================================================
-   FOOTER
+   STUDENT ID — BARRA FIXA
 ===================================================== */
 
-footer {
-    padding: 30px 8%;
+.student-id-bar {
+    position: fixed;
+
+    bottom: 0;
+    left: 0;
+
+    width: 100%;
+    height: 95px;
+
+    background-color: var(--rosa);
+
+    border-top: 3px solid var(--preto);
 
     display: flex;
+    align-items: center;
     justify-content: space-between;
-    gap: 20px;
 
-    background-color: var(--preto);
-    color: var(--branco);
+    padding: 10px 5%;
+
+    z-index: 999;
+}
+
+
+/* TEXTO DA BARRA */
+
+.student-id-label {
+    display: flex;
+    align-items: center;
+
+    gap: 15px;
+}
+
+.student-id-label span {
+    font-size: 2rem;
+
+    color: var(--verde);
+}
+
+.student-id-label p {
+    font-family: "Space Grotesk", sans-serif;
 
     font-size: 0.8rem;
+    font-weight: 700;
+
+    letter-spacing: 2px;
+}
+
+
+/* =====================================================
+   MINI CARTEIRINHA
+===================================================== */
+
+.mini-student-card {
+    width: 300px;
+    height: 150px;
+
+    padding: 12px;
+
+    position: relative;
+    top: -35px;
+
+    background-color: var(--branco);
+
+    border: 3px solid var(--preto);
+
+    box-shadow: 8px 8px 0 var(--preto);
+
+    transform: rotate(-3deg);
+
+    transition: 0.25s;
+}
+
+.mini-student-card:hover {
+    transform: rotate(0deg) translateY(-8px);
+
+    box-shadow: 12px 12px 0 var(--preto);
+}
+
+
+/* TOPO DA CARTEIRINHA */
+
+.mini-card-top {
+    display: flex;
+    justify-content: space-between;
+
+    padding-bottom: 6px;
+
+    border-bottom: 2px solid var(--preto);
+
+    font-size: 0.6rem;
+    font-weight: 700;
+}
+
+
+/* CONTEÚDO */
+
+.mini-card-content {
+    display: flex;
+
+    gap: 12px;
+
+    padding-top: 10px;
+}
+
+
+/* FOTO */
+
+.mini-card-content img {
+    width: 70px;
+    height: 85px;
+
+    object-fit: cover;
+
+    border: 2px solid var(--preto);
+}
+
+
+/* INFORMAÇÕES */
+
+.mini-card-content div {
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+}
+
+.mini-card-content strong {
+    font-family: "Space Grotesk", sans-serif;
+
+    font-size: 1.1rem;
+
+    line-height: 0.9;
+}
+
+.mini-card-content small {
+    margin-top: 8px;
+
+    font-size: 0.55rem;
+    font-weight: 700;
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 600px) {
+
+    .student-id-bar {
+        height: 75px;
+
+        padding: 8px 5%;
+    }
+
+    .student-id-label p {
+        display: none;
+    }
+
+    .student-id-label span {
+        font-size: 1.5rem;
+    }
+
+    .mini-student-card {
+        width: 230px;
+        height: 120px;
+
+        top: -25px;
+    }
+
+    .mini-card-content img {
+        width: 50px;
+        height: 65px;
+    }
+
+    .mini-card-content strong {
+        font-size: 0.9rem;
+    }
+
+}
+
+
+/* =====================================================
+   RESPONSIVIDADE
+===================================================== */
+
+@media (max-width: 700px) {
+
+    .student-card-body {
+        grid-template-columns: 1fr;
+    }
+
+    .student-photo {
+        max-width: 230px;
+        margin: auto;
+    }
+
+    .student-notes {
+        grid-template-columns: 1fr;
+    }
+
+    .student-card-footer {
+        flex-direction: column;
+        gap: 8px;
+        align-items: flex-start;
+    }
+
+    .student-card-link {
+        align-items: flex-start;
+    }
+
+    footer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 30px;
+    }
+
 }
 
 
@@ -635,6 +840,534 @@ footer {
 
     footer {
         flex-direction: column;
+    }
+
+}
+
+/* =====================================================
+   PÁGINA DA CARTEIRINHA
+===================================================== */
+
+.id-page {
+    min-height: 100vh;
+
+    background-color: var(--creme);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    position: relative;
+}
+
+
+/* =====================================================
+   BOTÃO VOLTAR
+===================================================== */
+
+.id-back {
+    position: fixed;
+
+    top: 30px;
+    left: 40px;
+
+    padding: 10px 18px;
+
+    background-color: var(--branco);
+
+    border: 3px solid var(--preto);
+
+    box-shadow: 5px 5px 0 var(--preto);
+
+    font-size: 0.8rem;
+    font-weight: 700;
+
+    z-index: 20;
+
+    transition: 0.2s;
+}
+
+.id-back:hover {
+    transform: translate(3px, 3px);
+
+    box-shadow: 2px 2px 0 var(--preto);
+}
+
+
+/* =====================================================
+   CONTEÚDO PRINCIPAL
+===================================================== */
+
+.id-main {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding: 100px 5% 60px;
+}
+
+
+/* TEXTO SUPERIOR */
+
+.id-page-label {
+    margin-bottom: 50px;
+
+    font-size: 0.75rem;
+
+    font-weight: 700;
+
+    letter-spacing: 3px;
+}
+
+
+/* =====================================================
+   CARTEIRINHA
+===================================================== */
+
+.big-student-card {
+    width: min(900px, 90vw);
+
+    aspect-ratio: 1.6 / 1;
+
+    background-color: var(--rosa);
+
+    border: 5px solid var(--preto);
+
+    box-shadow:
+        18px 18px 0 var(--preto);
+
+    position: relative;
+
+    overflow: hidden;
+
+    transform: rotate(-2deg);
+
+    transition: 0.4s;
+}
+
+
+/* Efeito ao passar o mouse */
+
+.big-student-card:hover {
+    transform: rotate(0deg) translateY(-8px);
+
+    box-shadow:
+        25px 25px 0 var(--preto);
+}
+
+
+/* =====================================================
+   PARTE SUPERIOR DA CARTEIRINHA
+===================================================== */
+
+.big-card-header {
+    height: 17%;
+
+    padding: 15px 25px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    border-bottom: 4px solid var(--preto);
+
+    background-color: var(--amarelo);
+
+    font-family: "Space Grotesk", sans-serif;
+
+    font-weight: 700;
+}
+
+
+.university-name {
+    font-size: 1.3rem;
+
+    letter-spacing: 1px;
+}
+
+
+.card-year {
+    font-size: 1rem;
+}
+
+
+/* =====================================================
+   CORPO DA CARTEIRINHA
+===================================================== */
+
+.big-card-body {
+    height: 63%;
+
+    display: grid;
+
+    grid-template-columns: 35% 65%;
+
+    padding: 30px 35px;
+
+    gap: 35px;
+}
+
+
+/* =====================================================
+   FOTO
+===================================================== */
+
+.big-card-photo {
+    width: 100%;
+    height: 100%;
+
+    padding: 10px;
+
+    background-color: var(--azul);
+
+    border: 4px solid var(--preto);
+
+    box-shadow: 7px 7px 0 var(--preto);
+
+    transform: rotate(2deg);
+}
+
+
+.big-card-photo img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    border: 3px solid var(--preto);
+}
+
+
+/* =====================================================
+   INFORMAÇÕES
+===================================================== */
+
+.big-card-info {
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    position: relative;
+}
+
+
+.card-label {
+    font-size: 0.8rem;
+
+    font-weight: 700;
+
+    letter-spacing: 3px;
+}
+
+
+.big-card-info h1 {
+    margin: 10px 0 25px;
+
+    font-family: "Space Grotesk", sans-serif;
+
+    font-size: clamp(3rem, 6vw, 6rem);
+
+    line-height: 0.8;
+
+    letter-spacing: -4px;
+}
+
+
+.card-course {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 5px;
+}
+
+
+.card-course span {
+    font-size: 0.65rem;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+}
+
+
+.card-course strong {
+    font-family: "Space Grotesk", sans-serif;
+
+    font-size: 1.2rem;
+
+    line-height: 1;
+}
+
+
+/* =====================================================
+   PARTE INFERIOR
+===================================================== */
+
+.big-card-bottom {
+    height: 20%;
+
+    padding: 10px 25px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 50px;
+
+    border-top: 4px solid var(--preto);
+
+    background-color: var(--verde);
+}
+
+
+.big-card-bottom div {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 3px;
+}
+
+
+.big-card-bottom span {
+    font-size: 0.55rem;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+}
+
+
+.big-card-bottom strong {
+    font-size: 0.75rem;
+}
+
+
+.card-symbol {
+    margin-left: auto;
+
+    font-size: 2rem;
+}
+
+
+/* =====================================================
+   ADESIVO
+===================================================== */
+
+.card-sticker {
+    position: absolute;
+
+    right: 30px;
+    top: 35%;
+
+    padding: 12px 15px;
+
+    background-color: var(--lilas);
+
+    border: 3px solid var(--preto);
+
+    box-shadow: 5px 5px 0 var(--preto);
+
+    font-family: "Space Grotesk", sans-serif;
+
+    font-size: 0.75rem;
+
+    font-weight: 700;
+
+    text-align: center;
+
+    line-height: 1;
+
+    transform: rotate(8deg);
+}
+
+
+/* =====================================================
+   NÚMERO
+===================================================== */
+
+.card-number {
+    position: absolute;
+
+    right: 25px;
+    bottom: 15px;
+
+    font-size: 0.65rem;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+}
+
+
+/* =====================================================
+   TEXTO ABAIXO DA CARTEIRINHA
+===================================================== */
+
+.id-caption {
+    margin-top: 70px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 5px;
+
+    transform: rotate(2deg);
+}
+
+
+.id-caption span {
+    font-size: 0.65rem;
+
+    font-weight: 700;
+
+    letter-spacing: 3px;
+}
+
+
+.id-caption strong {
+    padding: 5px 12px;
+
+    background-color: var(--verde);
+
+    border: 2px solid var(--preto);
+
+    font-family: "Space Grotesk", sans-serif;
+
+    font-size: 1.2rem;
+}
+
+
+/* =====================================================
+   ELEMENTOS DECORATIVOS
+===================================================== */
+
+.id-decoration {
+    position: fixed;
+
+    z-index: 0;
+
+    pointer-events: none;
+}
+
+
+.id-star {
+    top: 15%;
+
+    right: 8%;
+
+    font-size: 5rem;
+
+    color: var(--rosa);
+
+    transform: rotate(15deg);
+}
+
+
+.id-text {
+    bottom: 15%;
+
+    left: 5%;
+
+    font-size: 0.7rem;
+
+    font-weight: 700;
+
+    letter-spacing: 3px;
+
+    transform: rotate(-8deg);
+}
+
+
+/* =====================================================
+   RESPONSIVIDADE
+===================================================== */
+
+@media (max-width: 750px) {
+
+    .id-main {
+        padding-top: 100px;
+    }
+
+
+    .big-student-card {
+        width: 92vw;
+
+        aspect-ratio: auto;
+
+        min-height: 550px;
+    }
+
+
+    .big-card-header {
+        height: 70px;
+    }
+
+
+    .big-card-body {
+        height: auto;
+
+        grid-template-columns: 1fr;
+
+        padding: 25px;
+
+        gap: 25px;
+    }
+
+
+    .big-card-photo {
+        width: 180px;
+
+        height: 210px;
+
+        margin: auto;
+    }
+
+
+    .big-card-info {
+        align-items: center;
+
+        text-align: center;
+    }
+
+
+    .big-card-info h1 {
+        font-size: 3rem;
+    }
+
+
+    .big-card-bottom {
+        height: auto;
+
+        padding: 15px;
+
+        flex-wrap: wrap;
+
+        gap: 20px;
+    }
+
+
+    .card-sticker {
+        right: 10px;
+
+        top: 40%;
+    }
+
+
+    .id-decoration {
+        display: none;
     }
 
 }
