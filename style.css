@@ -287,7 +287,7 @@ h3 {
     grid-template-columns: 1fr 1fr;
     gap: 80px;
 
-    background-color: var(--rosa);
+    background-color: var(--lilas);
 }
 
 #sobre > div:last-child {
