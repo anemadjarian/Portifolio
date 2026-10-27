@@ -1,1373 +1,342 @@
-/* =====================================================
-   CONFIGURAÇÕES GERAIS
-===================================================== */
-
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
-
 :root {
-    --creme: #fffaf0;
-    --preto: #171717;
-    --rosa: #f28bc2;
-    --verde: #b8f23d;
-    --azul: #91dff5;
-    --lilas: #c9a7f5;
-    --amarelo: #ffe66d;
-    --branco: #ffffff;
+  /* Paleta Pastel Transcrita */
+  --powder-blush: #ffadadff;
+  --apricot-cream: #ffd6a5ff;
+  --cream: #fdffb6ff;
+  --tea-green: #caffbfff;
+  --electric-aqua: #9bf6ffff;
+  --baby-blue-ice: #a0c4ffff;
+  --periwinkle: #bdb2ffff;
+  --mauve: #ffc6ffff;
+  --porcelain: #fffffcff;
+
+  /* Cores de suporte */
+  --bg-dark: #0f1016;
+  --bg-card: rgba(255, 255, 252, 0.04);
+  --border-light: rgba(255, 255, 252, 0.12);
+  --text-main: #fffffc;
+  --text-muted: rgba(255, 255, 252, 0.7);
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-    background-color: var(--creme);
-    color: var(--preto);
-    font-family: "DM Sans", sans-serif;
-    line-height: 1.5;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  overflow-x: hidden;
+  position: relative;
+  line-height: 1.6;
 }
 
-a {
-    color: inherit;
-    text-decoration: none;
+/* Canvas de Fundo Animado */
+#bg-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  pointer-events: none;
 }
 
-img {
-    max-width: 100%;
-    display: block;
+/* Barra de Navegação */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 8%;
+  background: rgba(15, 16, 22, 0.7);
+  backdrop-filter: blur(12px);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+  border-bottom: 1px solid var(--border-light);
 }
 
-
-/* =====================================================
-   HEADER
-===================================================== */
-
-header {
-    width: 100%;
-    padding: 20px 6%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    border-bottom: 3px solid var(--preto);
-
-    background-color: var(--rosa);
-
-    position: sticky;
-    top: 0;
-    z-index: 100;
+.logo {
+  font-weight: 800;
+  font-size: 1.4rem;
+  color: var(--porcelain);
 }
 
-header > div a {
-    font-family: "Space Grotesk", sans-serif;
-    font-size: 1.5rem;
-    font-weight: 700;
+.logo span {
+  color: var(--powder-blush);
 }
 
-nav {
-    display: flex;
-    gap: 30px;
+.navbar nav a {
+  color: var(--text-muted);
+  text-decoration: none;
+  margin-left: 2rem;
+  transition: color 0.3s ease;
+  font-size: 0.95rem;
 }
 
-nav a {
-    font-weight: 700;
-    text-transform: uppercase;
-    font-size: 0.8rem;
+.navbar nav a:hover {
+  color: var(--electric-aqua);
 }
 
-nav a:hover {
-    text-decoration: underline;
-}
-
-
-/* =====================================================
-   CONFIGURAÇÃO DAS SEÇÕES
-===================================================== */
-
+/* Layout Geral de Seções */
 section {
-    padding: 100px 8%;
-    border-bottom: 3px solid var(--preto);
+  padding: 6rem 8% 4rem;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-section > p:first-child {
-    font-size: 0.8rem;
-    font-weight: 700;
-    letter-spacing: 2px;
+.section-title {
+  text-align: center;
+  margin-bottom: 3rem;
 }
 
-
-/* =====================================================
-   HERO / INÍCIO
-===================================================== */
-
-#inicio {
-    min-height: 90vh;
-
-    display: grid;
-    grid-template-columns: 1.2fr 0.8fr;
-
-    align-items: center;
-    gap: 60px;
-
-    background-color: var(--creme);
-
-    position: relative;
-    overflow: hidden;
-}
-
-#inicio::before {
-    content: "✦";
-
-    position: absolute;
-    top: 15%;
-    right: 8%;
-
-    font-size: 5rem;
-
-    color: var(--verde);
-
-    transform: rotate(15deg);
-}
-
-#inicio::after {
-    content: "HELLO!";
-
-    position: absolute;
-    bottom: 30px;
-    left: 5%;
-
-    font-size: 0.8rem;
-    font-weight: 700;
-    letter-spacing: 3px;
-
-    transform: rotate(-8deg);
-}
-
-#inicio p:first-child {
-    display: inline-block;
-
-    padding: 8px 14px;
-
-    background-color: var(--verde);
-
-    border: 3px solid var(--preto);
-
-    box-shadow: 6px 6px 0 var(--preto);
-
-    font-weight: 700;
-
-    transform: rotate(-3deg);
-}
-
-#inicio h1 {
-    margin: 30px 0;
-
-    font-family: "Space Grotesk", sans-serif;
-
-    font-size: clamp(4rem, 9vw, 9rem);
-    line-height: 0.85;
-
-    letter-spacing: -6px;
-
-    text-transform: uppercase;
-}
-
-#inicio div:first-child > p:nth-of-type(2) {
-    max-width: 500px;
-
-    font-size: 1.2rem;
-    font-weight: 500;
-
-    margin-bottom: 30px;
-}
-
-#inicio a {
-    display: inline-block;
-
-    padding: 15px 25px;
-
-    background-color: var(--preto);
-    color: var(--branco);
-
-    border: 3px solid var(--preto);
-
-    font-weight: 700;
-
-    box-shadow: 7px 7px 0 var(--rosa);
-
-    transition: 0.2s;
-}
-
-#inicio a:hover {
-    transform: translate(4px, 4px);
-    box-shadow: 3px 3px 0 var(--rosa);
-}
-
-
-/* =====================================================
-   FOTO
-===================================================== */
-
-#inicio > div:last-child {
-    padding: 15px;
-
-    background-color: var(--azul);
-
-    border: 3px solid var(--preto);
-
-    box-shadow: 12px 12px 0 var(--preto);
-
-    transform: rotate(4deg);
-
-    position: relative;
-}
-
-#inicio > div:last-child::before {
-    content: "THIS IS ME :)";
-
-    position: absolute;
-
-    top: -35px;
-    right: -20px;
-
-    padding: 6px 10px;
-
-    background-color: var(--amarelo);
-
-    border: 2px solid var(--preto);
-
-    font-size: 0.7rem;
-    font-weight: 700;
-
-    transform: rotate(-8deg);
-}
-
-#inicio img {
-    width: 100%;
-    height: 500px;
-
-    object-fit: cover;
-
-    border: 3px solid var(--preto);
-}
-
-
-/* =====================================================
-   TÍTULOS
-===================================================== */
-
-h2 {
-    margin: 25px 0 50px;
-
-    font-family: "Space Grotesk", sans-serif;
-
-    font-size: clamp(3rem, 6vw, 6rem);
-
-    line-height: 0.9;
-
-    letter-spacing: -3px;
-}
-
-h3 {
-    font-family: "Space Grotesk", sans-serif;
-}
-
-
-/* =====================================================
-   SOBRE
-===================================================== */
-
-#sobre {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
-
-    background-color: var(--lilas);
-}
-
-#sobre > div:last-child {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-
-    font-size: 1.2rem;
-}
-
-#sobre > div:last-child p {
-    padding: 25px;
-
-    background-color: var(--branco);
-
-    border: 3px solid var(--preto);
-
-    box-shadow: 8px 8px 0 var(--preto);
-}
-
-#sobre > div:last-child p:nth-child(2) {
-    background-color: var(--amarelo);
-
-    transform: rotate(2deg);
-}
-
-
-/* =====================================================
-   EXPERIÊNCIA
-===================================================== */
-
-#experiencia {
-    background-color: var(--azul);
-}
-
-#experiencia article {
-    padding: 35px;
-    margin-bottom: 40px;
-
-    background-color: var(--branco);
-
-    border: 3px solid var(--preto);
-
-    box-shadow: 10px 10px 0 var(--preto);
-
-    transition: 0.2s;
-}
-
-#experiencia article:hover {
-    transform: translate(-5px, -5px);
-    box-shadow: 15px 15px 0 var(--preto);
-}
-
-#experiencia article > p:first-child {
-    font-size: 0.8rem;
-    font-weight: 700;
-    letter-spacing: 2px;
-}
-
-#experiencia h3 {
-    margin: 15px 0 5px;
-
-    font-size: 2rem;
-}
-
-#experiencia article p:last-child {
-    margin-top: 20px;
-
-    max-width: 700px;
-}
-
-
-/* =====================================================
-   PROJETOS
-===================================================== */
-
-#projetos {
-    background-color: var(--creme);
-}
-
-#projetos > div {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 40px;
-}
-
-#projetos article {
-    min-height: 350px;
-
-    padding: 35px;
-
-    border: 3px solid var(--preto);
-
-    box-shadow: 10px 10px 0 var(--preto);
-
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-
-    transition: 0.2s;
-}
-
-#projetos article:nth-child(1) {
-    background-color: var(--lilas);
-    transform: rotate(-2deg);
-}
-
-#projetos article:nth-child(2) {
-    background-color: var(--verde);
-    transform: rotate(2deg);
-}
-
-#projetos article:nth-child(3) {
-    background-color: var(--amarelo);
-
-    grid-column: span 2;
-
-    min-height: 250px;
-
-    transform: rotate(-1deg);
-}
-
-#projetos article:hover {
-    transform: rotate(0) translateY(-8px);
-}
-
-#projetos article > p:first-child {
-    font-size: 3rem;
-    font-family: "Space Grotesk", sans-serif;
-    font-weight: 700;
-}
-
-#projetos h3 {
-    font-size: 2.5rem;
-    margin: 20px 0;
-}
-
-#projetos article p:nth-of-type(2) {
-    font-size: 1.1rem;
-}
-
-#projetos article p:nth-of-type(3) {
-    font-size: 0.8rem;
-    font-weight: 700;
-    margin-top: 20px;
-}
-
-#projetos article a {
-    display: inline-block;
-
-    width: fit-content;
-
-    margin-top: 25px;
-
-    padding: 10px 15px;
-
-    background-color: var(--preto);
-    color: var(--branco);
-
-    font-weight: 700;
-
-    border: 2px solid var(--preto);
-}
-
-
-/* =====================================================
-   HABILIDADES
-===================================================== */
-
-#habilidades {
-    background-color: var(--lilas);
-}
-
-#habilidades > div {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-}
-
-#habilidades > div > div {
-    padding: 30px;
-
-    background-color: var(--branco);
-
-    border: 3px solid var(--preto);
-
-    box-shadow: 8px 8px 0 var(--preto);
-}
-
-#habilidades h3 {
-    font-size: 1.7rem;
-    margin-bottom: 20px;
-}
-
-#habilidades ul {
-    list-style: none;
-}
-
-#habilidades li {
-    padding: 8px 0;
-
-    border-bottom: 2px dashed var(--preto);
-
-    font-weight: 500;
-}
-
-
-/* =====================================================
-   CONTATO
-===================================================== */
-
-#contato {
-    background-color: var(--verde);
-
-    text-align: center;
-}
-
-#contato h2 {
-    max-width: 800px;
-    margin: 25px auto;
-}
-
-#contato > p:nth-of-type(2) {
-    max-width: 600px;
-
-    margin: 0 auto 40px;
-
-    font-size: 1.2rem;
-}
-
-#contato > div {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-}
-
-#contato a {
-    padding: 15px 30px;
-
-    background-color: var(--branco);
-
-    border: 3px solid var(--preto);
-
-    box-shadow: 6px 6px 0 var(--preto);
-
-    font-weight: 700;
-
-    transition: 0.2s;
-}
-
-#contato a:hover {
-    transform: translate(4px, 4px);
-    box-shadow: 2px 2px 0 var(--preto);
-}
-
-
-/* =====================================================
-   STUDENT ID — BARRA FIXA
-===================================================== */
-
-.student-id-bar {
-    position: fixed;
-
-    bottom: 0;
-    left: 0;
-
-    width: 100%;
-    height: 95px;
-
-    background-color: var(--rosa);
-
-    border-top: 3px solid var(--preto);
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    padding: 10px 5%;
-
-    z-index: 999;
-}
-
-
-/* TEXTO DA BARRA */
-
-.student-id-label {
-    display: flex;
-    align-items: center;
-
-    gap: 15px;
-}
-
-.student-id-label span {
-    font-size: 2rem;
-
-    color: var(--verde);
-}
-
-.student-id-label p {
-    font-family: "Space Grotesk", sans-serif;
-
-    font-size: 0.8rem;
-    font-weight: 700;
-
-    letter-spacing: 2px;
-}
-
-
-/* =====================================================
-   MINI CARTEIRINHA
-===================================================== */
-
-.mini-student-card {
-    width: 300px;
-    height: 150px;
-
-    padding: 12px;
-
-    position: relative;
-    top: -35px;
-
-    background-color: var(--branco);
-
-    border: 3px solid var(--preto);
-
-    box-shadow: 8px 8px 0 var(--preto);
-
-    transform: rotate(-3deg);
-
-    transition: 0.25s;
-}
-
-.mini-student-card:hover {
-    transform: rotate(0deg) translateY(-8px);
-
-    box-shadow: 12px 12px 0 var(--preto);
-}
-
-
-/* TOPO DA CARTEIRINHA */
-
-.mini-card-top {
-    display: flex;
-    justify-content: space-between;
-
-    padding-bottom: 6px;
-
-    border-bottom: 2px solid var(--preto);
-
-    font-size: 0.6rem;
-    font-weight: 700;
-}
-
-
-/* CONTEÚDO */
-
-.mini-card-content {
-    display: flex;
-
-    gap: 12px;
-
-    padding-top: 10px;
-}
-
-
-/* FOTO */
-
-.mini-card-content img {
-    width: 70px;
-    height: 85px;
-
-    object-fit: cover;
-
-    border: 2px solid var(--preto);
-}
-
-
-/* INFORMAÇÕES */
-
-.mini-card-content div {
-    display: flex;
-    flex-direction: column;
-
-    justify-content: center;
-}
-
-.mini-card-content strong {
-    font-family: "Space Grotesk", sans-serif;
-
-    font-size: 1.1rem;
-
-    line-height: 0.9;
-}
-
-.mini-card-content small {
-    margin-top: 8px;
-
-    font-size: 0.55rem;
-    font-weight: 700;
-}
-
-
-/* =====================================================
-   MOBILE
-===================================================== */
-
-@media (max-width: 600px) {
-
-    .student-id-bar {
-        height: 75px;
-
-        padding: 8px 5%;
-    }
-
-    .student-id-label p {
-        display: none;
-    }
-
-    .student-id-label span {
-        font-size: 1.5rem;
-    }
-
-    .mini-student-card {
-        width: 230px;
-        height: 120px;
-
-        top: -25px;
-    }
-
-    .mini-card-content img {
-        width: 50px;
-        height: 65px;
-    }
-
-    .mini-card-content strong {
-        font-size: 0.9rem;
-    }
-
-}
-
-
-/* =====================================================
-   RESPONSIVIDADE
-===================================================== */
-
-@media (max-width: 700px) {
-
-    .student-card-body {
-        grid-template-columns: 1fr;
-    }
-
-    .student-photo {
-        max-width: 230px;
-        margin: auto;
-    }
-
-    .student-notes {
-        grid-template-columns: 1fr;
-    }
-
-    .student-card-footer {
-        flex-direction: column;
-        gap: 8px;
-        align-items: flex-start;
-    }
-
-    .student-card-link {
-        align-items: flex-start;
-    }
-
-    footer {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 30px;
-    }
-
-}
-
-
-/* =====================================================
-   RESPONSIVIDADE
-===================================================== */
-
-@media (max-width: 900px) {
-
-    header {
-        padding: 18px 5%;
-    }
-
-    nav {
-        gap: 15px;
-    }
-
-    #inicio {
-        grid-template-columns: 1fr;
-        padding-top: 80px;
-    }
-
-    #inicio > div:last-child {
-        max-width: 500px;
-        width: 90%;
-        margin: 30px auto;
-    }
-
-    #sobre {
-        grid-template-columns: 1fr;
-        gap: 40px;
-    }
-
-    #habilidades > div {
-        grid-template-columns: 1fr;
-    }
-
+.section-title h2 {
+  font-size: 2.2rem;
+  background: linear-gradient(135deg, var(--porcelain), var(--periwinkle));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 0.5rem;
 }
-
-
-@media (max-width: 600px) {
-
-    header {
-        flex-direction: column;
-        gap: 15px;
-    }
-
-    nav {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    section {
-        padding: 70px 5%;
-    }
 
-    #inicio h1 {
-        font-size: 4rem;
-        letter-spacing: -3px;
-    }
-
-    #inicio img {
-        height: 400px;
-    }
-
-    #projetos > div {
-        grid-template-columns: 1fr;
-    }
-
-    #projetos article:nth-child(3) {
-        grid-column: span 1;
-    }
-
-    footer {
-        flex-direction: column;
-    }
-
+.section-title p {
+  color: var(--text-muted);
 }
-
-/* =====================================================
-   PÁGINA DA CARTEIRINHA
-===================================================== */
-
-.id-page {
-    min-height: 100vh;
-
-    background-color: var(--creme);
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    overflow: hidden;
-
-    position: relative;
+/* Seção Hero */
+.hero {
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding-top: 8rem;
 }
-
-
-/* =====================================================
-   BOTÃO VOLTAR
-===================================================== */
-
-.id-back {
-    position: fixed;
-
-    top: 30px;
-    left: 40px;
-
-    padding: 10px 18px;
 
-    background-color: var(--branco);
-
-    border: 3px solid var(--preto);
-
-    box-shadow: 5px 5px 0 var(--preto);
-
-    font-size: 0.8rem;
-    font-weight: 700;
-
-    z-index: 20;
-
-    transition: 0.2s;
+.badge {
+  display: inline-block;
+  padding: 0.4rem 1.2rem;
+  background: rgba(189, 178, 255, 0.15);
+  border: 1px solid var(--periwinkle);
+  border-radius: 50px;
+  color: var(--periwinkle);
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
 }
-
-.id-back:hover {
-    transform: translate(3px, 3px);
 
-    box-shadow: 2px 2px 0 var(--preto);
+.hero h1 {
+  font-size: 3.5rem;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
 }
-
-
-/* =====================================================
-   CONTEÚDO PRINCIPAL
-===================================================== */
 
-.id-main {
-    width: 100%;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    padding: 100px 5% 60px;
+.hero h1 span {
+  background: linear-gradient(135deg, var(--powder-blush), var(--mauve), var(--electric-aqua));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
-
-
-/* TEXTO SUPERIOR */
 
-.id-page-label {
-    margin-bottom: 50px;
-
-    font-size: 0.75rem;
-
-    font-weight: 700;
-
-    letter-spacing: 3px;
+.hero p {
+  font-size: 1.15rem;
+  color: var(--text-muted);
+  max-width: 650px;
+  margin: 0 auto 2.5rem;
 }
-
-
-/* =====================================================
-   CARTEIRINHA
-===================================================== */
-
-.big-student-card {
-    width: min(900px, 90vw);
-
-    aspect-ratio: 1.6 / 1;
-
-    background-color: var(--rosa);
-
-    border: 5px solid var(--preto);
-
-    box-shadow:
-        18px 18px 0 var(--preto);
-
-    position: relative;
-
-    overflow: hidden;
 
-    transform: rotate(-2deg);
-
-    transition: 0.4s;
+/* Botões */
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
 }
-
-
-/* Efeito ao passar o mouse */
 
-.big-student-card:hover {
-    transform: rotate(0deg) translateY(-8px);
-
-    box-shadow:
-        25px 25px 0 var(--preto);
+.btn {
+  padding: 0.8rem 1.8rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+  border: none;
 }
-
-
-/* =====================================================
-   PARTE SUPERIOR DA CARTEIRINHA
-===================================================== */
-
-.big-card-header {
-    height: 17%;
 
-    padding: 15px 25px;
-
-    display: flex;
-
-    justify-content: space-between;
-
-    align-items: center;
-
-    border-bottom: 4px solid var(--preto);
-
-    background-color: var(--amarelo);
-
-    font-family: "Space Grotesk", sans-serif;
-
-    font-weight: 700;
+.btn:hover {
+  transform: translateY(-2px);
 }
-
 
-.university-name {
-    font-size: 1.3rem;
-
-    letter-spacing: 1px;
+.btn-primary {
+  background: linear-gradient(135deg, var(--periwinkle), var(--baby-blue-ice));
+  color: var(--bg-dark);
+  box-shadow: 0 4px 15px rgba(189, 178, 255, 0.3);
 }
-
 
-.card-year {
-    font-size: 1rem;
+.btn-secondary {
+  background: transparent;
+  color: var(--porcelain);
+  border: 1px solid var(--border-light);
 }
-
-
-/* =====================================================
-   CORPO DA CARTEIRINHA
-===================================================== */
-
-.big-card-body {
-    height: 63%;
-
-    display: grid;
-
-    grid-template-columns: 35% 65%;
-
-    padding: 30px 35px;
 
-    gap: 35px;
+/* Projetos */
+.filter-bar {
+  display: flex;
+  justify-content: center;
+  gap: 0.8rem;
+  margin-bottom: 2.5rem;
 }
 
-
-/* =====================================================
-   FOTO
-===================================================== */
-
-.big-card-photo {
-    width: 100%;
-    height: 100%;
-
-    padding: 10px;
-
-    background-color: var(--azul);
-
-    border: 4px solid var(--preto);
-
-    box-shadow: 7px 7px 0 var(--preto);
-
-    transform: rotate(2deg);
+.filter-btn {
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  color: var(--text-muted);
+  padding: 0.5rem 1.2rem;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
-
 
-.big-card-photo img {
-    width: 100%;
-    height: 100%;
-
-    object-fit: cover;
-
-    border: 3px solid var(--preto);
+.filter-btn.active, .filter-btn:hover {
+  background: rgba(155, 246, 255, 0.2);
+  border-color: var(--electric-aqua);
+  color: var(--electric-aqua);
 }
-
-
-/* =====================================================
-   INFORMAÇÕES
-===================================================== */
-
-.big-card-info {
-    display: flex;
-
-    flex-direction: column;
-
-    justify-content: center;
 
-    position: relative;
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
 }
 
-
-.card-label {
-    font-size: 0.8rem;
-
-    font-weight: 700;
-
-    letter-spacing: 3px;
+.project-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  padding: 2rem;
+  backdrop-filter: blur(8px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
 }
-
-
-.big-card-info h1 {
-    margin: 10px 0 25px;
-
-    font-family: "Space Grotesk", sans-serif;
-
-    font-size: clamp(3rem, 6vw, 6rem);
-
-    line-height: 0.8;
 
-    letter-spacing: -4px;
+.project-card:hover {
+  border-color: var(--mauve);
+  transform: translateY(-4px);
 }
 
-
-.card-course {
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 5px;
+.card-tag {
+  font-size: 0.75rem;
+  color: var(--apricot-cream);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 0.8rem;
 }
-
 
-.card-course span {
-    font-size: 0.65rem;
-
-    font-weight: 700;
-
-    letter-spacing: 2px;
+.project-card h3 {
+  margin-bottom: 0.8rem;
+  color: var(--porcelain);
 }
-
-
-.card-course strong {
-    font-family: "Space Grotesk", sans-serif;
 
-    font-size: 1.2rem;
-
-    line-height: 1;
+.project-card p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
 }
-
-
-/* =====================================================
-   PARTE INFERIOR
-===================================================== */
-
-.big-card-bottom {
-    height: 20%;
-
-    padding: 10px 25px;
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 50px;
 
-    border-top: 4px solid var(--preto);
-
-    background-color: var(--verde);
+.card-techs {
+  display: flex;
+  gap: 0.5rem;
 }
-
-
-.big-card-bottom div {
-    display: flex;
 
-    flex-direction: column;
-
-    gap: 3px;
+.card-techs span {
+  font-size: 0.75rem;
+  background: rgba(255, 255, 252, 0.08);
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+  color: var(--tea-green);
 }
-
-
-.big-card-bottom span {
-    font-size: 0.55rem;
-
-    font-weight: 700;
 
-    letter-spacing: 2px;
+/* Habilidades */
+.skills-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 700px;
+  margin: 0 auto;
 }
 
-
-.big-card-bottom strong {
-    font-size: 0.75rem;
+.skill-info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
 }
-
 
-.card-symbol {
-    margin-left: auto;
-
-    font-size: 2rem;
+.skill-bar {
+  height: 8px;
+  background: rgba(255, 255, 252, 0.1);
+  border-radius: 4px;
+  overflow: hidden;
 }
-
-
-/* =====================================================
-   ADESIVO
-===================================================== */
-
-.card-sticker {
-    position: absolute;
-
-    right: 30px;
-    top: 35%;
-
-    padding: 12px 15px;
 
-    background-color: var(--lilas);
-
-    border: 3px solid var(--preto);
-
-    box-shadow: 5px 5px 0 var(--preto);
-
-    font-family: "Space Grotesk", sans-serif;
-
-    font-size: 0.75rem;
-
-    font-weight: 700;
-
-    text-align: center;
-
-    line-height: 1;
-
-    transform: rotate(8deg);
+.skill-progress {
+  height: 100%;
+  background: linear-gradient(90deg, var(--powder-blush), var(--apricot-cream), var(--cream));
+  border-radius: 4px;
 }
 
-
-/* =====================================================
-   NÚMERO
-===================================================== */
-
-.card-number {
-    position: absolute;
-
-    right: 25px;
-    bottom: 15px;
-
-    font-size: 0.65rem;
-
-    font-weight: 700;
-
-    letter-spacing: 2px;
+/* Contato */
+.contact-form {
+  max-width: 600px;
+  margin: 0 auto;
+  background: var(--bg-card);
+  padding: 2.5rem;
+  border-radius: 12px;
+  border: 1px solid var(--border-light);
 }
-
-
-/* =====================================================
-   TEXTO ABAIXO DA CARTEIRINHA
-===================================================== */
 
-.id-caption {
-    margin-top: 70px;
-
-    display: flex;
-
-    flex-direction: column;
-
-    align-items: center;
-
-    gap: 5px;
-
-    transform: rotate(2deg);
+.form-group {
+  margin-bottom: 1.2rem;
 }
-
-
-.id-caption span {
-    font-size: 0.65rem;
 
-    font-weight: 700;
-
-    letter-spacing: 3px;
+.form-group label {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-size: 0.9rem;
+  color: var(--text-muted);
 }
-
-
-.id-caption strong {
-    padding: 5px 12px;
-
-    background-color: var(--verde);
 
-    border: 2px solid var(--preto);
-
-    font-family: "Space Grotesk", sans-serif;
-
-    font-size: 1.2rem;
+.form-group input, .form-group textarea {
+  width: 100%;
+  padding: 0.8rem;
+  background: rgba(15, 16, 22, 0.6);
+  border: 1px solid var(--border-light);
+  border-radius: 6px;
+  color: var(--porcelain);
+  font-family: inherit;
 }
-
-
-/* =====================================================
-   ELEMENTOS DECORATIVOS
-===================================================== */
 
-.id-decoration {
-    position: fixed;
-
-    z-index: 0;
-
-    pointer-events: none;
+.form-group input:focus, .form-group textarea:focus {
+  outline: none;
+  border-color: var(--electric-aqua);
 }
-
-
-.id-star {
-    top: 15%;
 
-    right: 8%;
-
-    font-size: 5rem;
-
-    color: var(--rosa);
-
-    transform: rotate(15deg);
+.btn-full {
+  width: 100%;
+  margin-top: 1rem;
 }
-
 
-.id-text {
-    bottom: 15%;
-
-    left: 5%;
-
-    font-size: 0.7rem;
-
-    font-weight: 700;
-
-    letter-spacing: 3px;
-
-    transform: rotate(-8deg);
+.form-status {
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: var(--tea-green);
 }
-
-
-/* =====================================================
-   RESPONSIVIDADE
-===================================================== */
-
-@media (max-width: 750px) {
-
-    .id-main {
-        padding-top: 100px;
-    }
-
-
-    .big-student-card {
-        width: 92vw;
-
-        aspect-ratio: auto;
-
-        min-height: 550px;
-    }
-
-
-    .big-card-header {
-        height: 70px;
-    }
-
-
-    .big-card-body {
-        height: auto;
-
-        grid-template-columns: 1fr;
-
-        padding: 25px;
-
-        gap: 25px;
-    }
-
-
-    .big-card-photo {
-        width: 180px;
-
-        height: 210px;
-
-        margin: auto;
-    }
-
-
-    .big-card-info {
-        align-items: center;
-
-        text-align: center;
-    }
-
-
-    .big-card-info h1 {
-        font-size: 3rem;
-    }
-
-
-    .big-card-bottom {
-        height: auto;
-
-        padding: 15px;
-
-        flex-wrap: wrap;
-
-        gap: 20px;
-    }
-
-
-    .card-sticker {
-        right: 10px;
-
-        top: 40%;
-    }
-
-
-    .id-decoration {
-        display: none;
-    }
 
+footer {
+  text-align: center;
+  padding: 2rem;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  border-top: 1px solid var(--border-light);
 }

@@ -1,497 +1,143 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-    <meta charset="UTF-8">
-
-    <!-- Faz o site se adaptar a celulares -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Ane Madjarian | Portfólio</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfólio - Desenvolvedor Web</title>
+  
+  <!-- Fonte do Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Arquivo CSS Externo -->
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-    <!-- ================= HEADER ================= -->
-    <header>
+  <!-- Canvas de Fundo (Sparkles) -->
+  <canvas id="bg-canvas"></canvas>
 
-        <div>
-            <a href="#inicio">madjariane.com</a>
+  <!-- Cabeçalho / Navegação -->
+  <header class="navbar">
+    <div class="logo">&lt;madjari<span>ane</span>/&gt;</div>
+    <nav>
+      <a href="#hero">Início</a>
+      <a href="#projects">Projetos</a>
+      <a href="#skills">Habilidades</a>
+      <a href="#contact">Contato</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Seção Hero -->
+    <section id="hero" class="hero">
+      <div class="hero-content">
+        <span class="badge">Cientista da Computação</span>
+        <h1>Criando experiências virtuais com <span>brilho e precisão</span>.</h1>
+        <p>Especializado em interfaces modernas, design interativo e aplicações dinâmicas de alta performance.</p>
+        <div class="hero-actions">
+          <a href="#projects" class="btn btn-primary">Ver Projetos</a>
+          <a href="#contact" class="btn btn-secondary">Entrar em Contato</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção Projetos -->
+    <section id="projects" class="projects">
+      <div class="section-title">
+        <h2>Projetos em Destaque</h2>
+        <p>Filtre por categoria para visualizar trabalhos recentes</p>
+      </div>
+
+      <div class="filter-bar">
+        <button class="filter-btn active" data-filter="all">Todos</button>
+        <button class="filter-btn" data-filter="web">Trabalhos Interdiciplinares</button>
+        <button class="filter-btn" data-filter="fullstack">COMP</button>
+        <button class="filter-btn" data-filter="creative">Estudos e Trabalhos</button>
+      </div>
+
+      <div class="projects-grid">
+
+        <a href="HTTPS://SEU-LINK-AQUI.COM" target="_blank" rel="noopener noreferrer" class="project-card" data-category="web">
+            <div class="card-tag">Web App</div>
+            <h3>Dashboard Analytics</h3>
+            <p>Visualização gráfica de métricas complexas com suporte a temas dinâmicos.</p>
+            <div class="card-techs">
+                <span>TypeScript</span>
+                <span>Vue.js</span>
+                <span>Tailwind</span>
+            </div>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- Seção Habilidades -->
+    <section id="skills" class="skills">
+      <div class="section-title">
+        <h2>Minhas Habilidades</h2>
+        <p>Tecnologias e domínios de conhecimento</p>
+      </div>
+
+      <div class="skills-grid">
+        <div class="skill-item">
+          <div class="skill-info">
+            <span>Frontend (React, HTML5, CSS3)</span>
+            <span>95%</span>
+          </div>
+          <div class="skill-bar"><div class="skill-progress" style="width: 95%;"></div></div>
         </div>
 
-        <nav>
-            <a href="#sobre">Sobre</a>
-            <a href="#experiencia">Experiência</a>
-            <a href="#destaques">Destaques</a>
-            <a href="#habilidades">Habilidades</a>
-            <a href="#contato">Contato</a>
-        </nav>
-
-    </header>
-
-
-    <main>
-
-        <!-- ================= INÍCIO ================= -->
-        <section id="inicio">
-
-            <div>
-                <p>Olá! Eu sou</p>
-
-                <h1>
-                    Ane<br>
-                    Madjarian.
-                </h1>
-
-                <p>
-                    Estudante de Ciência da Computação
-                    na PUC Minas, com interesse em tecnologia,
-                    desenvolvimento de produtos e gestão.
-                </p>
-
-                <a href="#destaques">
-                    Ver meus destaques →
-                </a>
-            </div>
-
-
-            <!-- Espaço para sua foto -->
-            <div>
-                <img
-                    src="imgs/img1.jpg"
-                    alt="Foto de Ane Madjarian"
-                >
-            </div>
-
-        </section>
-
-
-        <!-- ================= SOBRE ================= -->
-        <section class="sobre-mim" id="sobre">
-            <div class="sobre-header">
-                <span class="section-number">01 / SOBRE MIM</span>
-
-                <h2>
-                    Construindo valores<br>
-                    <span>que fazem sentido.</span>
-                </h2>
-
-                
-            </div>
-
-            <div class="valores">
-                <div class="valor valor-principal">
-                    <span class="valor-numero">01</span>
-                    <div>
-                        <h3>Ownership</h3>
-                        <p>
-                            Assumir responsabilidades, tomar iniciativa e levar uma
-                            ideia do começo ao resultado.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="valor">
-                    <span class="valor-numero">02</span>
-                    <div>
-                        <h3>Protagonismo</h3>
-                        <p>
-                            Não esperar acontecer. Participar, decidir e construir
-                            ativamente.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="valor">
-                    <span class="valor-numero">03</span>
-                    <div>
-                        <h3>Impacto</h3>
-                        <p>
-                            Criar soluções que tenham propósito e façam diferença
-                            para quem está do outro lado.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="valor">
-                    <span class="valor-numero">04</span>
-                    <div>
-                        <h3>Colaboração</h3>
-                        <p>
-                            Acredito que grandes resultados são construídos por
-                            pessoas que compartilham ideias.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-
-        <!-- ================= EXPERIÊNCIA ================= -->
-    
-            <section id="experiencia">
-
-                <div class="timeline-header">
-
-                    <p>02 / EXPERIÊNCIA </p>
-
-                    <h2>
-                        Minha<br>
-                        trajetória.
-                    </h2>
-
-                </div>
-
-
-                <div class="timeline">
-
-                    <!-- Robótica -->
-
-                    <article class="timeline-item">
-
-                        <div class="timeline-year">
-                            2023
-                        </div>
-
-                        <div class="timeline-dot"></div>
-
-                        <div class="timeline-card">
-
-                            <span>01</span>
-
-                            <h3>
-                                Robótica
-                            </h3>
-
-                            <div class="timeline-tag">
-                                LÍDER DE AUTOMAÇÃO
-                            </div>
-
-                            <p>
-                                Participação em equipe de robótica,
-                                desenvolvendo habilidades em programação,
-                                automação e liderança.
-                            </p>
-
-            
-
-                        </div>
-
-                    </article>
-
-
-                    <!-- Programação Competitivas -->
-
-                    <article class="timeline-item">
-
-                        <div class="timeline-year">
-                            2025
-                        </div>
-
-                        <div class="timeline-dot"></div>
-
-                        <div class="timeline-card">
-
-                            <span>02</span>
-
-                            <h3>
-                                Programação Competitiva
-                            </h3>
-
-                            <div class="timeline-tag">
-                                MARATONISTA
-                            </div>
-
-                            <p>
-                                Participação em competições de programação,
-                                aprimorando habilidades em algoritmos,
-                                lógica e resolução de problemas.
-                            </p>
-
-                            
-                        </div>
-
-                    </article>
-
-
-                    <!-- COMP -->
-
-                    <article class="timeline-item">
-
-                        <div class="timeline-year">
-                            2026
-                        </div>
-
-                        <div class="timeline-dot"></div>
-
-                        <div class="timeline-card">
-
-                            <span>03</span>
-
-                            <h3>
-                                COMP
-                            </h3>
-
-                            <div class="timeline-tag">
-                                DIRETORA COMERCIAL
-                            </div>
-
-                            <p>
-                                Atuo na interseção entre tecnologia, pessoas e estratégia, com experiência em produto, gestão de projetos e liderança de equipes.
-                            </p>
-
-
-                        </div>
-
-                    </article>
-
-
-                    <!-- NEXT -->
-
-                    <article class="timeline-item">
-
-                        <div class="timeline-year">
-                            AGORA!
-                        </div>
-
-                        <div class="timeline-dot"></div>
-
-                        <div class="timeline-card timeline-current">
-
-                            <span>04</span>
-
-                            <h3>
-                                Qual é o meu próximo desafio?
-                            </h3>
-
-                            <div class="timeline-tag">
-                                ✦ CARREGANDO... 
-                            </div>
-
-                            <p>
-                                Estou em busca de oportunidades para aplicar
-                                minhas habilidades, aprender e crescer.
-                            </p>
-
-                        </div>
-
-                    </article>
-
-                </div>
-
-            </section>
-
-
-        <!-- ================= PROJETOS ================= -->
-        <section id="projetos">
-
-            <p>03 / PROJETOS</p>
-
-            <h2>
-                Coisas que eu construí.
-            </h2>
-
-
-            <div>
-
-                <article>
-
-                    <p>01</p>
-
-                    <h3>
-                        Sabor do Campo
-                    </h3>
-
-                    <p>
-                        Plataforma web de delivery desenvolvida
-                        para um restaurante.
-                    </p>
-
-                    <p>
-                        Next.js · React · Tailwind ·
-                        Spring Boot · MySQL
-                    </p>
-
-                    <a href="#">
-                        Ver projeto →
-                    </a>
-
-                </article>
-
-
-                <article>
-
-                    <p>02</p>
-
-                    <h3>
-                        GRWM
-                    </h3>
-
-                    <p>
-                        Projetos desenvolvidos durante a graduação
-                        envolvendo programação, estruturas de dados
-                        e desenvolvimento de software.
-                    </p>
-
-                    <p>
-                        Java · C · Git · GitHub
-                    </p>
-
-                    <a href="#">
-                        Ver projetos →
-                    </a>
-
-                </article>
-
-
-                <article>
-
-                    <p>03</p>
-
-                    <h3>
-                        COMP
-                    </h3>
-
-                    <p>
-                        Projetos e iniciativas relacionados à
-                        gestão de produtos, processos e tecnologia.
-                    </p>
-
-                    <a href="#">
-                        Saiba mais →
-                    </a>
-
-                </article>
-
-            </div>
-
-        </section>
-
-
-        <!-- ================= HABILIDADES ================= -->
-        <section id="habilidades">
-
-            <p>04 / HABILIDADES</p>
-
-            <h2>
-                O que eu sei fazer
-            </h2>
-
-
-            <div>
-
-                <div>
-                    <h3>Desenvolvimento</h3>
-
-                    <ul>
-                        <li>HTML</li>
-                        <li>CSS</li>
-                        <li>JavaScript</li>
-                        <li>Java</li>
-                        <li>C</li>
-                    </ul>
-                </div>
-
-
-                <div>
-                    <h3>Ferramentas</h3>
-
-                    <ul>
-                        <li>Git</li>
-                        <li>GitHub</li>
-                        <li>MySQL</li>
-                    </ul>
-                </div>
-
-
-                <div>
-                    <h3>Produto</h3>
-
-                    <ul>
-                        <li>Product Ownership</li>
-                        <li>Gestão de projetos</li>
-                        <li>Organização de processos</li>
-                        <li>Relacionamento com clientes</li>
-                    </ul>
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- ================= CONTATO ================= -->
-        <section id="contato">
-
-            <p>05 / CONTATO</p>
-
-            <h2>
-                Vamos conversar?
-            </h2>
-
-            <p>
-                Estou sempre aberta para conhecer novos
-                projetos, pessoas e oportunidades.
-            </p>
-
-
-            <div>
-
-                <a href="#">
-                    GitHub
-                </a>
-
-                <a href="#">
-                    LinkedIn
-                </a>
-
-                <a href="https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox">
-                    E-mail
-                </a>
-            
-
-            </div>
-
-        </section>
-
-    </main>
-
-<!-- ================= STUDENT ID BAR ================= -->
-
-<div class="student-id-bar">
-
-    <div class="student-id-label">
-        <span>✦</span>
-        <p>MY STUDENT ID</p>
-    </div>
-
-    <a href="faculdade.html" class="mini-student-card">
-
-        <div class="mini-card-top">
-            <span>PUC MINAS</span>
-            <span>2026</span>
+        <div class="skill-item">
+          <div class="skill-info">
+            <span>JavaScript & TypeScript</span>
+            <span>90%</span>
+          </div>
+          <div class="skill-bar"><div class="skill-progress" style="width: 90%;"></div></div>
         </div>
 
-        <div class="mini-card-content">
-
-            <img
-                src="assets/foto.png"
-                alt="Foto de Ane"
-            >
-
-            <div>
-                <strong>ANE</strong>
-                <strong>MADJARIAN</strong>
-                <small>COMPUTER SCIENCE</small>
-            </div>
-
+        <div class="skill-item">
+          <div class="skill-info">
+            <span>Backend & Bancos de Dados</span>
+            <span>80%</span>
+          </div>
+          <div class="skill-bar"><div class="skill-progress" style="width: 80%;"></div></div>
         </div>
+      </div>
+    </section>
 
-    </a>
+    <!-- Seção Contato -->
+    <section id="contact" class="contact">
+      <div class="section-title">
+        <h2>Vamos conversar?</h2>
+        <p>Envie uma mensagem para iniciarmos um novo projeto.</p>
+      </div>
 
-</div>
+      <form id="contact-form" class="contact-form">
+        <div class="form-group">
+          <label for="name">Nome</label>
+          <input type="text" id="name" required placeholder="Seu nome">
+        </div>
+        <div class="form-group">
+          <label for="email">E-mail</label>
+          <input type="email" id="email" required placeholder="seu@email.com">
+        </div>
+        <div class="form-group">
+          <label for="message">Mensagem</label>
+          <textarea id="message" rows="5" required placeholder="Como posso ajudar você?"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary btn-full">Enviar Mensagem</button>
+        <p id="form-status" class="form-status"></p>
+      </form>
+    </section>
+  </main>
 
+  <footer>
+    <p>&copy; 2026 DevSpark. Todos os direitos reservados.</p>
+  </footer>
+
+  <!-- Arquivo JavaScript Externo -->
+  <script src="script.js"></script>
 </body>
-
 </html>
