@@ -189,3 +189,79 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 1200);
   });
 });
+
+// Lógica do Chatbot de IA
+const aiToggle = document.getElementById("ai-chat-toggle");
+const aiBox = document.getElementById("ai-chat-box");
+const aiClose = document.getElementById("ai-chat-close");
+const aiInput = document.getElementById("ai-input");
+const aiSend = document.getElementById("ai-send-btn");
+const aiMessages = document.getElementById("ai-messages");
+
+aiToggle.addEventListener("click", () => aiBox.classList.toggle("hidden"));
+aiClose.addEventListener("click", () => aiBox.classList.add("hidden"));
+
+function appendMessage(text, isUser) {
+  const msgDiv = document.createElement("div");
+  msgDiv.className = `message ${isUser ? "user-msg" : "ai-msg"}`;
+  msgDiv.textContent = text;
+  aiMessages.appendChild(msgDiv);
+  aiMessages.scrollTop = aiMessages.scrollHeight;
+}
+
+async function handleAISend() {
+  const query = aiInput.value.trim();
+  if (!query) return;
+
+  appendMessage(query, true);
+  aiInput.value = "";
+
+  // Mensagem de carregamento
+  const loadingDiv = document.createElement("div");
+  loadingDiv.className = "message ai-msg";
+  loadingDiv.textContent = "A pensar...";
+  aiMessages.appendChild(loadingDiv);
+
+  // Substitua 'SUA_CHAVE_API_AQUI' pela sua API Key do Google AI Studio
+  const API_KEY = "SUA_CHAVE_API_AQUI"; 
+  const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`;
+
+  // Contexto sobre si para instruir a IA
+  const promptContexto = `
+    És o assistente virtual do portfólio da Ane. 
+    Responde de forma amigável, sucinta e profissional em português.
+    Informações sobre a Ane:
+    - Curso: Ciência da Computação.
+    - Habilidades: Java, C, Lógica de Programação, Estruturas de Dados, Vendas Técnicas, Liderança e Oratória.
+    - Projetos: Visualizer (Aplicação Web CRUD), Gerenciamento de Cursos (AEDs III), Repositórios de Estudos (AEDs I e II).
+    - Pergunta do visitante: "${query}"
+  `;
+
+  try {
+    const response = await fetch(API_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        contents: [{ parts: [{ text: promptContexto }] }]
+      })
+    });
+
+    const data = await response.json();
+    loadingDiv.remove();
+
+    if (data.candidates && data.candidates[0].content.parts[0].text) {
+      const respostaIA = data.candidates[0].content.parts[0].text;
+      appendMessage(respostaIA, false);
+    } else {
+      appendMessage("Não consegui processar a resposta neste momento.", false);
+    }
+  } catch (err) {
+    loadingDiv.remove();
+    appendMessage("Erro ao ligar ao serviço de IA.", false);
+  }
+}
+
+aiSend.addEventListener("click", handleAISend);
+aiInput.addEventListener("keypress", (e) => {
+  if (e.key === "Enter") handleAISend();
+});

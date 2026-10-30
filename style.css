@@ -346,3 +346,122 @@ a.project-card * {
   text-decoration: none !important;
   color: inherit;
 }
+
+/* AI Chatbot Widget */
+.ai-widget {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.ai-toggle-btn {
+  background: linear-gradient(135deg, var(--periwinkle), var(--mauve));
+  color: var(--bg-dark);
+  border: none;
+  padding: 0.8rem 1.2rem;
+  border-radius: 30px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(189, 178, 255, 0.4);
+  transition: transform 0.2s ease;
+}
+
+.ai-toggle-btn:hover {
+  transform: scale(1.05);
+}
+
+.ai-chat-box {
+  width: 320px;
+  height: 420px;
+  background: rgba(15, 16, 22, 0.95);
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  backdrop-filter: blur(16px);
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  bottom: 60px;
+  right: 0;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+}
+
+.ai-chat-box.hidden {
+  display: none;
+}
+
+.ai-chat-header {
+  background: rgba(255, 255, 252, 0.05);
+  padding: 0.8rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border-light);
+  font-weight: 600;
+}
+
+.ai-chat-header button {
+  background: none;
+  border: none;
+  color: var(--porcelain);
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.ai-messages {
+  flex: 1;
+  padding: 1rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  font-size: 0.85rem;
+}
+
+.message {
+  padding: 0.6rem 0.9rem;
+  border-radius: 8px;
+  max-width: 85%;
+}
+
+.ai-msg {
+  background: rgba(189, 178, 255, 0.15);
+  border: 1px solid var(--periwinkle);
+  color: var(--porcelain);
+  align-self: flex-start;
+}
+
+.user-msg {
+  background: linear-gradient(135deg, var(--periwinkle), var(--baby-blue-ice));
+  color: var(--bg-dark);
+  align-self: flex-end;
+  font-weight: 500;
+}
+
+.ai-input-area {
+  padding: 0.8rem;
+  display: flex;
+  gap: 0.5rem;
+  border-top: 1px solid var(--border-light);
+}
+
+.ai-input-area input {
+  flex: 1;
+  background: rgba(255, 255, 252, 0.05);
+  border: 1px solid var(--border-light);
+  border-radius: 6px;
+  padding: 0.5rem;
+  color: var(--porcelain);
+  font-size: 0.85rem;
+}
+
+.ai-input-area button {
+  background: var(--electric-aqua);
+  border: none;
+  color: var(--bg-dark);
+  padding: 0.5rem 0.8rem;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+}
