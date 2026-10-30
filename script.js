@@ -236,30 +236,11 @@ async function handleAISend() {
     - Projetos: Visualizer (Aplicação Web CRUD), Gerenciamento de Cursos (AEDs III), Repositórios de Estudos (AEDs I e II).
     - Pergunta do visitante: "${query}"
   `;
-
-  try {
-    const response = await fetch(API_URL, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        contents: [{ parts: [{ text: promptContexto }] }]
-      })
-    });
-
-    const data = await response.json();
-    loadingDiv.remove();
-
-    if (data.candidates && data.candidates[0].content.parts[0].text) {
-      const respostaIA = data.candidates[0].content.parts[0].text;
-      appendMessage(respostaIA, false);
-    } else {
-      appendMessage("Não consegui processar a resposta neste momento.", false);
-    }
-  } catch (err) {
+ 
     loadingDiv.remove();
     appendMessage("Erro ao ligar ao serviço de IA.", false);
-  }
 }
+
 
 aiSend.addEventListener("click", handleAISend);
 aiInput.addEventListener("keypress", (e) => {
